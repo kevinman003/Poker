@@ -259,8 +259,8 @@ class Table {
 				break;
 			case STREETS.RIVER:
 				this.street = STREETS.PREFLOP;
-				this.findWinner();
 				this.showCards();
+				this.findWinner();
 				break;
 		}
 		if (this.street !== STREETS.RIVER) {
