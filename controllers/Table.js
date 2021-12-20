@@ -27,7 +27,7 @@ class Table {
 		this.blind = 10;
 		this.playerPositions = {};
 		this.disabled = true;
-		this.time = 10;
+		this.time = 10000;
 		this.timeCount = 10;
 		this.toJoin = [];
 		this.name;
@@ -148,11 +148,13 @@ class Table {
 	start() {
 		this.disabled = false;
 		this.players.forEach(player => {
-			this.dealPlayerCards(player);
+			if (player.playing) {
+				this.dealPlayerCards(player);
+			}
 		});
 		this.toCall = this.blind;
 
-		this.bigBlind = Math.floor(Math.random() * this.getActivePlayers().length);
+		this.bigBlind = 0; // TODO: uncomment Math.floor(Math.random() * this.getActivePlayers().length);
 
 		this.resetBlinds();
 	}
